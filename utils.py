@@ -1,4 +1,12 @@
+from skimage.metrics import structural_similarity
 import torch
+
+
+def ssim(img1, img2):
+    img1, img2 = img1.cpu().numpy(), img2.cpu().numpy()
+    dr = max(img1.max(), img2.max()) - min(img1.min(), img2.min())
+
+    return structural_similarity(img1, img2, data_range=dr, multichannel=True)
 
 
 def add_noise(input, mean=0, std=1, propogation=0.1):
