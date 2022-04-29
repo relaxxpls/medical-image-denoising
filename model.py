@@ -33,7 +33,7 @@ class AutoEncoderCNN(nn.Module):
             nn.Conv2d(128, 64, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.Upsample(scale_factor=2),
-            nn.Conv2d(64, 1, kernel_size=3, padding=1),
+            nn.Conv2d(64, channels, kernel_size=3, padding=1),
             nn.Sigmoid(),
         )
 
